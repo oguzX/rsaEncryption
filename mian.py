@@ -130,9 +130,9 @@ def writeAFile(x):
     file.write('E : ' + str(x['E']) + '\n')
     file.write('D : ' + str(x['D']) + '\n')
     file.write('Sifre : ' + str(x['passwordObj']['password']) + '\n')
-    file.write('Sifre Sure : ' + str(x['passwordObj']['passwordTime']) + '\n')
+    file.write('Sifre Sure : ' + str(x['passwordObj']['passwordCreateTime']) + '\n')
     file.write('Sifre Cozulmus : ' + str(x['decryptPass']['number']) + '\n')
-    file.write('Sifre Cozulmus Sure : ' + str(x['decryptPass']['passwordTime']) + '\n')
+    file.write('Sifre Cozulmus Sure : ' + str(x['decryptPass']['passwordDecryptTime']) + '\n')
     file.write('========================================')
     file.write('\n')
     file.close()
@@ -140,12 +140,12 @@ def writeAFile(x):
 def decrypt(password, D, N):
     start_time = time.time()
     number = (password**D)%N
-    return {'number':number,'passwordTime':'{:f}'.format(time.time() - start_time)}
+    return {'number':number,'passwordDecryptTime':'{:f}'.format(time.time() - start_time)}
 
 def encrypt(number, E, N):
     start_time = time.time()
     password = (number**E)%N
-    return {'password':password,'passwordTime':'{:f}'.format(time.time() - start_time)}
+    return {'password':password,'passwordCreateTime':'{:f}'.format(time.time() - start_time)}
 
 def calculateD(e, Q):
     start_time = time.time()
