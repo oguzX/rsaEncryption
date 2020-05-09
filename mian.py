@@ -2,10 +2,6 @@ import time
 
 
 def mian():
-    pq = [
-        {'p':13,'q':17,'E':55},
-    ]
-
     k = [
         {
             'k':99,
@@ -96,7 +92,7 @@ def mian():
 
 
     results = []
-
+    count = 0
     for y in k:
         for x in y['pq']:
             Q = ((x['p'] - 1) * (x['q'] - 1))
@@ -116,8 +112,10 @@ def mian():
                 'passwordObj':passwordObj,
                 'decryptPass': decryptPass
             }
+            count +=1
             writeAFile(result)
             print(result)
+            print('\n --'+ str(count) +'-- \n')
             results.append(result)
 
 
